@@ -1,0 +1,285 @@
+<!Doctype html>
+<html>
+   <head>
+     <title>FaceBico Web</title>
+   </head>
+   <body>
+     <h1>Salve galera que participa do FaceBico Web</h1>
+   <body>
+</html>
+
+public class Main {
+
+    public static void main(String[] args)  {
+
+      Application.current().getFrame().setTitle("ola galera do FaceBico!");
+
+      Dialog dialog = new Dialog();
+      dialog.setTitle("janela");
+      dialog.setBounds(100, 100, 400, 200);
+
+      Label label = new Label();
+      label.setText("Espero que vcs curtão essa pagina na web");
+      label.setSize(150, 50);
+
+      dialog.getChildren().add(label);
+      dialog.setVisible(true);
+    }
+ }
+
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app
+      version="2.4"
+      xmlns="http://FaceBico.com.br"
+      xmlns:xsi="http://www.FaceBico.com.br/2020"
+      xsi:schemaLocation="http://FaceBico.com.br/web-app"
+   <servelet>
+        <servelet-name>FaceBico</servet-name>
+        <servelet-class>FaceBico.web.webservlet</servlet-class>
+        <init-param>
+           <param-name>styleSheet<param-name>
+           <param-value>DefaultStyle</param-valeu>
+        </init-param>
+        <init-param>
+            <param-name>mainClass</param-name>
+            <param-value>br.FaceBico.ola.Main</param-value>
+        </init-param>
+   </servelet>
+   <servelet-mapping>
+        <servelet-name>FaceBico</servelet-name>
+        <url-pattern>/*</url-pattern>
+   </servelet>-mapping>
+   <servlet>
+    <servlet-name>text</servlet-name>
+    <servlet-class>FaceBico.redeweb.WebServlet</servlet-class>
+ <init-param>
+    <param-name>styleSheet</param-name>
+    <param-value>DefaultStyle</param-value>
+    <init-param>
+    <param-name>mainClass</param-name>
+    <param-value>org.maujr.FaceBico.text.Main</param-value>
+  </init-param>
+  </servlet>
+        <servlet-mapping>
+    <servlet-name>FaceBico</servlet-name>
+      <url-pattern>FaceBico</url-pattern>
+      </servlet-mapping>
+   </web-app> 
+
+public static void main (String[] args);
+    Application.current().getFrame().setTitle("imagem");
+
+    Dialog dialog = new Dialog();
+    dialog.setTitle("pagina faceBico");
+    dialog.setBounds(100, 100, 400, 400);
+
+    Image image = new Image("");
+    image.setSize(289, 70);
+
+    dialog.getChildren().add(image);
+    dialog.setVisible(true);
+  }
+
+public  static void main (String[] args);
+   Application.current().getFrame().setTitle("Rede Social");
+
+   Dialog dialog = new Dialog("Rede Social");
+   dialog.setBounds(0, 0, 800, 600);
+
+   WebBrowser webbrowser = new WebBrowser();
+   webBrowser.setBounds(20, 20, 750, 550);
+   webBrowser.setLocation("http://www.FaceBico.com.br/");
+
+   dialog.getChildren().add(webBrowser);
+   dialog.setVisible(true);
+
+  }
+
+  public static void main(String[] args)  {
+      Application.current().getFrame().setTitle("Campo de caixa de entrada");
+
+         Dialog dialog = new Dialog();
+         dialog.setTitle("Campo de caixa de entrada");
+         dialog.setModal(false);
+         dialog.setResizeAllowed(true);
+         dialog.setBounds(50, 50, 300, 200);
+
+         Label labelInput = new Label();
+         labelInput.setBounds(10, 10, 100, 20);
+         labelInput.setText("InputText");
+
+         TextField inputField = new Label();
+         inputiField.setBounds(60, 10, 100, 20);
+
+         Label labelPassword = new Label();
+         labelPassword.setBounds(10,40,100,20);
+         labelPassword.setText("Password");
+
+         TextField inputPassword = new TextField();
+          /* Colocar a propriedade inputHidden com o valor TRUE faz * com que o componente não exiba o seu texto */
+           inputPassword.setInputHidden(true);
+           inputPassword.setBounds(60, 40, 100, 20);
+
+        Label labelMask = new Label();
+        labelMask.setBounds( 10, 70, 100, 20 );
+        labelMask.setText("Masked");
+
+        TextField inputMask = new TextField();
+        inputMask.setBounds(60, 70, 100, 20);
+        /* Para criar um editor com máscara, basta dizer  * qual o formato na propriedade editMask */
+        inputMask.setEditMask("##,##");
+
+        dialog.getChildren().add(labelInput);
+        dialog.getChildren().add(inputField);
+
+        dialog.getChildren().add(labelPassword);
+        dialog.getChildren().add(inputPassword);
+
+        dialog.getChildren().add(labelMask);
+        dialog.getChildren().add(inputMask);
+
+        dialog.setVisible(true);
+}
+
+   public static void main(String[] args)   { 
+           Application.current().getFrame().setTitle("Campos de "Entrada");
+
+      Dialog dialog = new Dialog();
+      dialog.setTitle("Campos de Entrada");
+      dialog.setModal(false);
+      dialog.setResizeAllowed(true);
+      dialog.setBounds( 50, 50, 400, 400  );
+
+      Label labelArea = new Label();
+      labelArea.setBounds( 10, 10, 100, 20 );
+      labelArea.setText("TextArea");
+
+      final Label labelResult = new Label();
+      labelResult.setBounds( 170, 10, 100, 100 );
+      labelResult.setWrapText(true);
+      labelResult.setText("");
+
+      TextArea textArea = new TextArea();
+      textArea.setBounds(60, 10, 100, 100);
+      textArea.addPropertyChangeListener( TextComponent.PROPERTY_TEXT , new PropertyChangeListener() {
+
+      public void propertyChange(PropertyChangeEvent ev) { 
+           labelResult.setText(  ((TextComponent)
+       ev.getSource()).getText() );
+        }
+         });
+          Label labelDate = new Label();
+          labelDate.setBounds(10, 120, 100, 20);
+          labelDate.setText("Date");
+
+          DateBox dateBox = new DateBox();
+          dateBox.setBounds(60, 120, 100, 150);
+
+          Label labelDateDropDown = new Label();
+          labelDateDropDown.setText("DropDate");
+          labelDateDropDown.setBounds(10, 280, 100, 20); 
+
+          DropDownDateBox dropDownDateBox = new DropDownDateBox();
+          dropDownDateBox.setBounds(60, 280, 100, 20); 
+
+          dialog.getChildren().add(labelArea);
+          dialog.getChildren().add(textArea);
+          dialog.getChildren().add(labelResult);
+
+          dialog.getChildren().add(labelDate);
+          dialog.getChildren().add(dateBox);
+
+          dialog.getChildren().add(labelDateDropDown);
+          dialog.getChildren().add(dropDownDateBox);
+
+          dialog.setVisible(true);
+       } 
+
+   public static void main(String[] args) {
+    Application.current().getFrame().setTitle("Botões");
+
+    Dialog dialog = new Dialog();
+    dialog.setTitle("Botões");
+    dialog.setModal(false);
+    dialog.setResizeAllowed(true);
+    dialog.setBounds( 50, 50, 400, 400  );
+
+    Button button = new Button();
+    button.setText("Clique Aqui!");
+    button.setBounds(50, 50, 100, 30);   
+
+    button.addActionListener( Button.ACTION_CLICK , new ActionListener() 
+  {
+
+            public void actionPerformed(ActionEvent ev) { 
+
+            Button button = (Button) ev.getSource();
+            if ( "Clique Aqui!".equals( button.getText()) ) {
+
+                    button.setText("Clique Ali!"); 
+             } else {
+                    button.setText("Clique Aqui!"
+       }
+    }
+} ); 
+   
+   CheckBox checkBox1 = new CheckBox();
+   checkBox1.setText("Opção 1");
+   checkBox1.setBounds(50, 90, 100, 30);
+
+   CheckBox checkBox2 = new CheckBox();
+   checkBox2.setText("Opção 2");
+   checkBox2.setBounds(50, 130, 100, 30);
+
+   CheckBox checkBox3 = new CheckBox();
+   checkBox3.setText("Opção 3");
+   checkBox3.setBounds(50, 170, 100, 30);
+
+   RadioButton radio1 = new RadioButton();
+   radio1.setText("Radio 1");
+   radio1.setBounds(50, 230, 100, 30); 
+
+   RadioButton radio2 = new RadioButton();
+   radio2.setText("Radio 2");
+   radio2.setBounds(50, 270, 100, 30);
+
+   RadioButton.Group radioGroup = new RadioButton.Group();
+   radioGroup.add(radio1);
+   radioGroup.add(radio2);
+
+   dialog.getChildren().add(button); 
+
+    dialog.getChildren().add(checkBox1);
+    dialog.getChildren().add(checkBox2);
+    dialog.getChildren().add(checkBox3);
+
+    dialog.getChildren().add(radio1);
+    dialog.getChildren().add(radio2);
+
+   dialog.setVisible(true);
+}   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
